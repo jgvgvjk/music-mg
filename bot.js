@@ -49,7 +49,7 @@ var download = function(uri, filename, callback) {
 };
 
 client.on('message', function(message) {
-var prefix = ".";
+var prefix = "-";
 	const member = message.member;
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
@@ -233,7 +233,7 @@ function isYoutube(str) {
 	return str.toLowerCase().indexOf('youtube.com') > -1;
 }
  client.on('message', message => {
-var prefix = ".";
+var prefix = "-";
      if (message.content === prefix +"مساعدة") {
     const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
@@ -264,6 +264,7 @@ var prefix = ".";
 	});
 
 client.on('message', message => {
+
 var prefix = "#";
 
   if (!message.content.startsWith(prefix)) return;
