@@ -11,7 +11,7 @@ const moment = require('moment');
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const discord_token = process.env.BOT_TOKEN;
-client.login(discord_token);
+client.login(process.env.BOT_TOKEN);
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
 });
@@ -264,7 +264,7 @@ var prefix = "-";
 
 client.on('message', message => {
 
-var prefix = "#";
+var prefix = "-";
 
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
@@ -281,7 +281,7 @@ message.react("✅")
 
 
 client.on('message', message => {
-var prefix = "#";
+var prefix = "-";
 
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
@@ -300,7 +300,7 @@ message.react("✅")
 
 
 client.on('message', message => {
-var prefix = "#";
+var prefix = "-";
 
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
@@ -317,7 +317,7 @@ message.react("✅")
 
 
 client.on('message', message => {
-var prefix = "#";
+var prefix = "-";
 
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
@@ -336,7 +336,7 @@ message.react("✔")
  
 
 client.on('message', message => {
-    var prefix = "+";
+    var prefix = "-";
     
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
