@@ -66,39 +66,34 @@ SEND_MESSAGES: true
 });
 
 
-    client.on("message", async message => {
-        if(!message.channel.guild) return;
- var prefix= "$";
-        if(message.content.startsWith(prefix + 'server')) {
-        let guild = message.guild
-        let channel = message.channel
-        let guildicon = guild.icon_url
-        let members = guild.memberCount
-        let bots = guild.members.filter(m => m.user.bot).size
-        let humans = members - bots
-        let allchannels = guild.channels.size
-        let textchannels = guild.channels.filter(e => e.type === "text")
-        let voicechannels = guild.channels.filter(e => e.type === "voice")
-          var embed = new Discord.RichEmbed()
-          .setColor("#000000")
-          .setTitle(`معلومات عن السيرفر`)
-          .setDescription(`معلومات عن : ${guild.name}`)
-          .addField("صاحب السيرفر :", `${guild.owner}`, true)
-          .addField("أيدي السيرفر :", `${guild.id}`, true)
-          .addField("موقع السيرفر :", `${guild.region}`, true)
-          .addField("مستوى حماية السيرفر :", `${guild.verificationLevel}`, true)
-          .addField("عدد الرومات الصوتية :", `${voicechannels.size}`, true)
-          .addField("عدد الرومات الكتابية :", `${textchannels.size}`, true)
-          .addField("عدد اعضاء السيرفر :", `${members}`, true)
-          .addField("عدد البوتات :", `${bots}`, true)
-          .addField("عدد الاشخاص :", `${humans}`, true)
-          .addField("عدد رتب السيرفر :", `${guild.roles.size}`, true)
-          .addField(`أيموجيات الخاصة بالسيرفر : (${guild.emojis.size})`, `- ${guild.emojis.array()}`, true)
-          .setFooter(`تم انشاء هذه السيرفر في: ${guild.createdAt}`)
-
-       message.channel.send({ embed: embed });
-
-      }
+client.on('message', message => {
+    if (message.content === "$server") {
+    if(!message.channel.guild) return;
+    const millis = new Date().getTime() - message.guild.createdAt.getTime();
+    const now = new Date();
+    
+    const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
+    const days = millis / 1000 / 60 / 60 / 24;
+    let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
+    var embed  = new Discord.RichEmbed()
+    .setAuthor(message.guild.name, message.guild.iconURL)
+    .addField("**🆔 سيـرفر ايــدي**", "**"+message.guild.id+"**",true)
+    .addField("**👑 سيــرفر اونـر**", "**"+message.guild.owner+"**" ,true)
+    .addField("**✅ الشــات الاســاســي**" , "**"+message.guild.DefaultChannel+"**" ,true)
+    .addField("**🌍 المـوقع**" , "**"+message.guild.region+"**",true)
+    .addField('**💬 عدد الرومــات الكتابيــة**',`**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Channel **`,true)
+    .addField("**📣 عدد الرومــات الصوتــية**", ` ** [ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Channel ** `,true)
+    .addField("**🤔 عدد ايــام انشــاء السيــرفر**", ` ** [ ${days.toFixed(0)} ] ** Day ` ,true)
+    .addField("**👔 الــرتــب**",`**[${message.guild.roles.size}]** Role `,true)
+    .addField("**💠 مســتوى حمــاية الســيرفر**", ` ** [ ${verificationLevels[message.guild.verificationLevel]} ] ** `,true)
+    
+    .addField("👥عدد الاعضــاء",`
+    **${message.guild.memberCount}**`)
+    .setThumbnail(message.guild.iconURL)
+    .setColor('RANDOM')
+    message.channel.sendEmbed(embed)
+    
+    }
     });
 
 
