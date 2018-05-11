@@ -16,7 +16,7 @@ client.on('message', message => {
  
      let args = message.content.split(' ').slice(1).join(' ');
       if(!message.channel.guild) return;
- if(message.content.split(' ')[0] == '$bc') {
+ if(message.content.split(' ')[0] == '!bc') {
           message.react("✔️")
            let embed = new Discord.RichEmbed()
      .setColor("#FF00FF")
@@ -36,7 +36,7 @@ client.on('message', message => {
 
 
  client.on('message', message => {
-    var prefix = "$";
+    var prefix = "!";
 if(message.content === prefix + "muteall") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -67,7 +67,7 @@ SEND_MESSAGES: true
 
 
 client.on('message', message => {
-    if (message.content === "$server") {
+    if (message.content === "!server") {
     if(!message.channel.guild) return;
     const millis = new Date().getTime() - message.guild.createdAt.getTime();
     const now = new Date();
@@ -98,7 +98,7 @@ client.on('message', message => {
 
 
 client.on("message", message => {
- if (message.content === "$help") {
+ if (message.content === "!help") {
         message.react("✅")
            message.react("📬")
   const embed = new Discord.RichEmbed() 
@@ -114,41 +114,45 @@ client.on("message", message => {
 
    👑「اوامر البوت」👑
    
-   👑$bc 「للبرودكاست بأميد」
+   👑!bc 「للبرودكاست بأميد」
 
-   👑$muteall 「لقفل الشات」
+   👑!muteall 「لقفل الشات」
 
-   👑$unmuteall 「لفتح الشات」
+   👑!unmuteall 「لفتح الشات」
 
-   👑$mute 「 لاعطاء ميوت لشخص 」
+   👑اسكت
+ 「 لاعطاء ميوت لشخص 」
 
-   👑$unmute 「لفك ميوت」
+   👑تكلم
+ 「لفك ميوت」
 
-   👑$id 「معلومات عن العضو」
+   👑!id 「معلومات عن العضو」
 
-   👑$server 「معلومات عن السيرفر」
+   👑!server 「معلومات عن السيرفر」
 
-   👑$color 150 「لعمل 150 لون」
+   👑!color 150 「لعمل 150 لون」
 
-   👑$ban 「لتعطي شخص باند مع السبب」
+   👑!ban 「لتعطي شخص باند مع السبب」
    
-   👑$kick 「لتعطي شخص كيك مع السبب」
+   👑!kick 「لتعطي شخص كيك مع السبب」
+
+   👑+role bots  「لأعطاء جميع البوتات رتبة」
       
-   👑$per 「لعرض خصائص رتبتك」
+   👑!per 「لعرض خصائص رتبتك」
  
    👑رابط
 「يرسل لك رابط السيرفر على الخاص」
 
-   🎴+avatar 「لي عرض صورتك او صوره اي شخص」
+   🎴!avatar 「لي عرض صورتك او صوره اي شخص」
 
-   🎴+image 「لي عرض صوره السيرفر」
+   🎴!image 「لي عرض صوره السيرفر」
  
 
   
 
 
 ══════════ஜ۩۞۩ஜ════════════  
-
+جميع الحقوق محفظوظة لدى سيرفر رعب
 ══════════ஜ۩۞۩ஜ════════════ 
  `)
    
@@ -240,7 +244,7 @@ if(command === `كلم`) {
 
   client.on('message', function(message) {
     if(!message.channel.guild) return;
-if(message.content ===  '$color 150') {
+if(message.content ===  '!color 150') {
 if(message.member.hasPermission('MANAGE_ROLES')) {
 setInterval(function(){})
 message.channel.send('جاري عمل الالوان |✅')
@@ -251,7 +255,7 @@ message.channel.send('ما معاك البرمشن المطلوب  |❌')
 });
 
 client.on('message', message=>{
-if (message.content ===  '$color 150'){
+if (message.content ===  '!color 150'){
 if(!message.channel.guild) return;
 if(message.member.hasPermission('MANAGE_ROLES')) {
   setInterval(function(){})
@@ -276,7 +280,7 @@ client.on('message', message => {
         return ':x:';
       }
     };
-    if (message.content === '$per') {
+    if (message.content === '!per') {
     message.channel.send({embed: {
       title: ':tools: Permissions',
       color: 0x06DF00,
@@ -415,7 +419,7 @@ client.on('message', message => {
     }
   });
   client.on('message', message => {
-    var prefix = "$"
+    var prefix = "!"
       if (message.author.omar) return;
       if (!message.content.startsWith(prefix)) return;
       var command = message.content.split(" ")[0];
@@ -447,7 +451,7 @@ client.on('message', message => {
 
 
   client.on('message', message => {
-var prefix = "$"
+var prefix = "!"
   if (message.author.omar) return;
   if (!message.content.startsWith(prefix)) return;
   var command = message.content.split(" ")[0];
@@ -475,11 +479,11 @@ message.guild.member(user).kick();
 });
 
 client.on("message", message => {
-    var prefix = "$";
+    var prefix = "!";
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + 'ppp' ) ) return;
+	if( !msg.startsWith( prefix + 'role' ) ) return;
 	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
  if (!message.member.hasPermission("ADMINISTRATOR"))  return message.reply("**للأسف ليس لديك صلاحية `ADMINISTRATOR`**").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("**I Don't Have `ADMINISTRATOR` Permission**").then(msg => msg.delete(6000));
@@ -525,7 +529,7 @@ if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return mes
 
 let points = JSON.parse(fs.readFileSync('./fkk/3wasmPTS.json', 'utf8'));
      
-var prefix = "$";
+var prefix = "!";
 
 client.on('message', message => {
 	if (!points[message.author.id]) points[message.author.id] = {
@@ -576,7 +580,7 @@ client.on('message', message => {
         
 
         client.on("message", async message => {
-            var prefix = '$';
+            var prefix = '!';
             if(message.author.bot) return;
               if(message.channel.type === "dm") return;
               let user = message.mentions.users.first();
@@ -649,7 +653,7 @@ client.on('message', message => {
 
 
 client.on("message", message => {
-    const prefix = "$"
+    const prefix = "!"
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
@@ -668,7 +672,7 @@ client.on("message", message => {
   });
 
   client.on('message', message => {
-    if (message.content.startsWith("$avatar")) {
+    if (message.content.startsWith("!avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -685,7 +689,7 @@ client.on("message", message => {
 });
 
 client.on('message', message => {
-    var prefix = "$";
+    var prefix = "!";
     
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
