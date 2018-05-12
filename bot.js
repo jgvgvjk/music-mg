@@ -707,13 +707,6 @@ client.on('message', message => {
         message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
     } else
     
-     
-    if (message.content.startsWith(prefix + 'streem')) {
-    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-    client.user.setGame(argresult, "http://twitch.tv/HP");
-        message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
-    } else
-    
     if (message.content.startsWith(prefix + 'setname')) {
     if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
       client.user.setUsername(argresult).then
@@ -735,5 +728,24 @@ client.on('message', message => {
     }
     
      });
+
+client.on('ready', function(){
+    client.user.setStatus("dnd");
+    var ms = 100000 ;
+    var setGame = [`!help البوت خاص لكلان رعب`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/r3b`);
+    }, ms);100000
+
+});
 
  client.login(process.env.BOT_TOKEN);
