@@ -11,29 +11,7 @@ client.on('ready',  () => {
   });
 
 
-client.on('message', message => {
-    let embed = new Discord.RichEmbed()
- 
-     let args = message.content.split(' ').slice(1).join(' ');
-      if(!message.channel.guild) return;
- if(message.content.split(' ')[0] == '!bc') {
-if(!message.member.hasPermission('ADMINISTRATOR'));
-          message.react("✔️")
-           let embed = new Discord.RichEmbed()
-     .setColor("#FF00FF")
-     .setThumbnail(message.author.avatarURL)   
-                                       .addField('تم الارسال بواسطة :', "<@" + message.author.id + ">")
-                  message.channel.sendEmbed(embed);
-         message.guild.members.forEach(m => {
-             var bc = new Discord.RichEmbed()
- .addField('**● Sender  :**', `*** → ${message.author.username}#${message.author.discriminator}***`)
-             .addField('***● Server  :***', `*** → ${message.guild.name}***`)               
-     .setColor('#ff0000')
-                  .addField('ّ', args)
-             m.send(``,{embed: bc});
-         });
-     }
- })
+
 
 
  client.on('message', message => {
@@ -115,7 +93,6 @@ client.on("message", message => {
 
    👑「اوامر البوت」👑
    
-   👑!bc 「للبرودكاست بأميد」
 
    👑!muteall 「لقفل الشات」
 
@@ -137,13 +114,7 @@ client.on("message", message => {
    
    👑!kick 「لتعطي شخص كيك مع السبب」
 
-   👑!role bots  「لأعطاء جميع البوتات رتبة」
-      
-   👑!per 「لعرض خصائص رتبتك」
-
-   👑!لغز
-   「لعبة لغز」
-
+     
    👑رابط
 「يرسل لك رابط السيرفر على الخاص」
 
@@ -156,8 +127,6 @@ client.on("message", message => {
 
 
 ══════════ஜ۩۞۩ஜ════════════  
-جميع الحقوق محفظوظة لدى سيرفر رعب
-══════════ஜ۩۞۩ஜ════════════ 
  `)
    
    
@@ -273,155 +242,7 @@ color: 'RANDOM'})
 }
 });
     
-client.on('message', message => {
-    id = client.user.id;
-    guild = message.guild;
-    emojiHasPermission = permission => {
-      console.log(permission);
-      if (guild.member(id).permissions.has(permission, false)) {
-        return ':white_check_mark:';
-      } else {
-        return ':x:';
-      }
-    };
-    if (message.content === '!per') {
-    message.channel.send({embed: {
-      title: ':tools: Permissions',
-      color: 0x06DF00,
-      fields: [
-        {
-  
-          name: 'Administrator :',
-          value: emojiHasPermission('ADMINISTRATOR'),
-          inline: true
-        },
-        {
-          name: 'Create Instant Invite :',
-          value: emojiHasPermission('CREATE_INSTANT_INVITE'),
-          inline: true
-        },
-        {
-          name: 'Kick Members :',
-          value: emojiHasPermission('KICK_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Ban Members :',
-          value: emojiHasPermission('BAN_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Manage Channels :',
-          value: emojiHasPermission('MANAGE_CHANNELS'),
-          inline: true
-        },
-        {
-          name: 'Manage Guild :',
-          value: emojiHasPermission('MANAGE_GUILD'),
-          inline: true
-        },
-        {
-          name: 'Add Reactions :',
-          value: emojiHasPermission('ADD_REACTIONS'),
-          inline: true
-        },
-        {
-          name: 'View Audit Log :',
-          value: emojiHasPermission('VIEW_AUDIT_LOG'),
-          inline: true
-        },
-        {
-  
-          name: 'Manage Messages :',
-          value: emojiHasPermission('MANAGE_MESSAGES'),
-          inline: true
-        },
-        {
-          name: 'Embed Links :',
-          value: emojiHasPermission('EMBED_LINKS'),
-          inline: true
-        },
-        {
-          name: 'Attach Files :',
-          value: emojiHasPermission('ATTACH_FILES'),
-          inline: true
-        },
-        {
-          name: 'Read Message History :',
-          value: emojiHasPermission('READ_MESSAGE_HISTORY'),
-          inline: true
-        },
-        {
-          name: 'Mention Everyone :',
-          value: emojiHasPermission('MENTION_EVERYONE'),
-          inline: true
-        },
-        {
-          name: 'Use External Emojis :',
-          value: emojiHasPermission('USE_EXTERNAL_EMOJIS'),
-          inline: true
-        },
-        {
-          name: 'Connect :',
-          value: emojiHasPermission('CONNECT'),
-          inline: true
-        },
-        {
-          name: 'Speak :',
-          value: emojiHasPermission('SPEAK'),
-          inline: true
-        },
-        {
-  
-          name: 'Mute Members :',
-          value: emojiHasPermission('MUTE_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Deafen Members :',
-          value: emojiHasPermission('DEAFEN_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Move Members :',
-          value: emojiHasPermission('MOVE_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Use VAD :',
-          value: emojiHasPermission('USE_VAD'),
-          inline: true
-        },
-        {
-          name: 'Change Nickname :',
-          value: emojiHasPermission('CHANGE_NICKNAME'),
-          inline: true
-        },
-        {
-          name: 'Manage Nicknames :',
-          value: emojiHasPermission('MANAGE_NICKNAMES'),
-          inline: true
-        },
-        {
-          name: 'Manage Roles :',
-          value: emojiHasPermission('MANAGE_ROLES'),
-          inline: true
-        },
-        {
-          name: 'Manage Webhooks :',
-          value: emojiHasPermission('MANAGE_WEBHOOKS'),
-          inline: true
-        },
-        {
-          name: 'Manage Emojis :',
-          value: emojiHasPermission('MANAGE_EMOJIS'),
-          inline: true
-        }
-      ]
-    }
-    });
-    }
-  });
+
   client.on('message', message => {
     var prefix = "!"
       if (message.author.omar) return;
@@ -531,57 +352,6 @@ if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return mes
 	} 
 });
 
-let points = JSON.parse(fs.readFileSync('./fkk/3wasmPTS.json', 'utf8'));
-     
-var prefix = "!";
-
-client.on('message', message => {
-	if (!points[message.author.id]) points[message.author.id] = {
-		points: 0,
-		};
-	if (message.content.startsWith(prefix + 'لغز')) {
-		if(!message.channel.guild) return
-	
-	const type = require('./fkk/quiz.json');
-	const item = type[Math.floor(Math.random() * type.length)];
-	const filter = response => {
-			return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-	};
-	message.channel.send('**لديك 10 ثانية لتجيب**').then(msg => {
-	
-				
-	msg.channel.send(`${item.type}`).then(() => {
-					message.channel.awaitMessages(filter, { maxMatches: 1, time: 10000, errors: ['time'] })
-					.then((collected) => {
-			message.channel.send(`${collected.first().author} ✅ **مبروك لقد كسبت نقطه
-	لمعرفة نقطاك الرجاء كتابة .نقاطي**`);
-			console.log(`[Typing] ${collected.first().author} typed the word.`);
-				let userData = points[message.author.id];
-				userData.points++;
-						})
-						.catch(collected => {
-							message.channel.send(`:x: **خطأ حاول مرة اخرى**`);
-				console.log('[Typing] Error: No one type the word.');
-						})
-			})
-		})
-	}
-	});
-    client.on('message', message => {
-        if (message.content.startsWith(prefix + 'نقاطي')) {
-            if(!message.channel.guild) return
-            let userData = points[message.author.id];
-            let embed = new Discord.RichEmbed()
-            .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-            .setColor('#000000')
-            .setDescription(`نقاطك: \`${userData.points}\``)
-            message.channel.sendEmbed(embed)
-          }
-          fs.writeFile("./fkk/3wasmPTS.json", JSON.stringify(points), (err) => {
-            if (err) console.error(err)
-          })
-        });
-        
 
         client.on("message", async message => {
             var prefix = '!';
@@ -702,27 +472,27 @@ client.on('message', message => {
     
     
     if (message.content.startsWith(prefix + 'playing')) {
-    if (message.author.id !== '234454368072630283') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '396958215377780747') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setGame(argresult);
         message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
     } else
     
     if (message.content.startsWith(prefix + 'setname')) {
-    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '396958215377780747') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
       client.user.setUsername(argresult).then
           message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
       return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
     } else
         
     if (message.content.startsWith(prefix + 'setavatar')) {
-    if (message.author.id !== '354653862533136387') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '396958215377780747') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setAvatar(argresult);
         message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
     } else
     
     
     if (message.content.startsWith(prefix + 'watching')) {
-    if (message.author.id !== '234454368072630283') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '396958215377780747') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
         client.user.setActivity(argresult, {type : 'watching'});
      message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
     }
@@ -732,7 +502,7 @@ client.on('message', message => {
 client.on('ready', function(){
     client.user.setStatus("dnd");
     var ms = 100000 ;
-    var setGame = [`!help البوت خاص لكلان رعب`];
+    var setGame = [`!help `];
     var i = -1;
     var j = 0;
     setInterval(function (){
